@@ -1,0 +1,675 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41E44AD8-1A07-42F3-AC27-7336F672232E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Essingen</RootNamespace>
+    <AssemblyName>Essingen</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Web.6.9.9\lib\net45\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Code\Helpers.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataObjects\SL.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040022197_init.cs" />
+    <Compile Include="Migrations\201710040022197_init.Designer.cs">
+      <DependentUpon>201710040022197_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040032434_init2.cs" />
+    <Compile Include="Migrations\201710040032434_init2.Designer.cs">
+      <DependentUpon>201710040032434_init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040043455_init3.cs" />
+    <Compile Include="Migrations\201710040043455_init3.Designer.cs">
+      <DependentUpon>201710040043455_init3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040114395_init4.cs" />
+    <Compile Include="Migrations\201710040114395_init4.Designer.cs">
+      <DependentUpon>201710040114395_init4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040149270_init5.cs" />
+    <Compile Include="Migrations\201710040149270_init5.Designer.cs">
+      <DependentUpon>201710040149270_init5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040240570_init6.cs" />
+    <Compile Include="Migrations\201710040240570_init6.Designer.cs">
+      <DependentUpon>201710040240570_init6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040246337_init7.cs" />
+    <Compile Include="Migrations\201710040246337_init7.Designer.cs">
+      <DependentUpon>201710040246337_init7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710040257189_init8.cs" />
+    <Compile Include="Migrations\201710040257189_init8.Designer.cs">
+      <DependentUpon>201710040257189_init8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710061305231_init9.cs" />
+    <Compile Include="Migrations\201710061305231_init9.Designer.cs">
+      <DependentUpon>201710061305231_init9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710081245181_init10.cs" />
+    <Compile Include="Migrations\201710081245181_init10.Designer.cs">
+      <DependentUpon>201710081245181_init10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EssingenContext.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\PlaceCategory.cs" />
+    <Compile Include="Models\Place.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Variables\Enums.cs" />
+    <Compile Include="Controllers\PlaceCategoriesController.cs" />
+    <Compile Include="Controllers\PlacesController.cs" />
+    <Compile Include="Controllers\PlacesScaffoldController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bullet.png" />
+    <Content Include="Content\js-image-slider.css" />
+    <Content Include="Content\js-image-slider.js" />
+    <Content Include="Content\OldPictures\3f261855-2763-46ab-aa5e-3faa5501ed57.jpg" />
+    <Content Include="Content\OldPictures\ARKM.1962-101-1710.jpg" />
+    <Content Include="Content\OldPictures\Båt-Lillan-Lilla-Essingebron-1937-ca-besk.jpg" />
+    <Content Include="Content\OldPictures\Essinge-Mulle-Lux-1.jpg" />
+    <Content Include="Content\OldPictures\Lilan-snabb-DA1900-8486-ICA001339b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-1932-.jpg" />
+    <Content Include="Content\OldPictures\Lillan-1969-EssBrog-22korrbesk.jpg" />
+    <Content Include="Content\OldPictures\Lillan-30tal-bioinvigning-1938.jpg" />
+    <Content Include="Content\OldPictures\Lillan-30tal-Disponentgatan-1932-ca-800x927.jpg" />
+    <Content Include="Content\OldPictures\Lillan-30tal-E-Brogata-1932.jpg" />
+    <Content Include="Content\OldPictures\Lillan-30tal-flygfoto-1938-b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-30tal-från-Fredhäll.jpg" />
+    <Content Include="Content\OldPictures\Lillan-30tal1934-flyg.jpg" />
+    <Content Include="Content\OldPictures\Lillan-arla-col-hus2.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Betongbron-o-föreningshuset.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Disponentgatan-1937-ca-stämplat-1957.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Essinge-Brogata-EssBro1944-ca-stämplat-1948.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Essinge-Brogata-Höögs-1943-1944.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Essinge-Brogata-Konsum-skrivet-1937.jpg" />
+    <Content Include="Content\OldPictures\Lillan-flygfoto-1927-besk-300-dpi.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Frukt-60-Ess-Djulstedt.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Frukt-60-Ma-Djulstedt.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Frukt-diponentgatan-vykort.png" />
+    <Content Include="Content\OldPictures\Lillan-Föreningshuset-1912-och-gamla-bron-1907-1937-mot-Marieberg-1935-ca.jpg" />
+    <Content Include="Content\OldPictures\Lillan-glas-Föreningshuset-a-1600-fix.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Idasro-Larsson.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Lehto2b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Lilla-Essingebrons-invigning-1936.jpg" />
+    <Content Include="Content\OldPictures\Lillan-matbutik-30-50-Konsum-bag-51.jpg" />
+    <Content Include="Content\OldPictures\Lillan-matbutiker-30-50-Kronlaxen-47.jpg" />
+    <Content Include="Content\OldPictures\Lillan-med-Folkskolan-1952-startåret.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Sigmar-Monica-Jan-Birgitta-första-skoldan-1952-300.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Sigmar-Monica-o-Birgitta-1953-300.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Skolgården-ca-1958-G-W-.jpg" />
+    <Content Include="Content\OldPictures\Lillan-snabb-1969-EssBrog-9-Strålg-2-besk-.jpg" />
+    <Content Include="Content\OldPictures\Lillan-spring-1969-EssBrog-22korrbesk.jpg" />
+    <Content Include="Content\OldPictures\Lillan-spring-Disponentgatan-1938-ca.jpg" />
+    <Content Include="Content\OldPictures\Lillan-SSMSVD031530S.jpg" />
+    <Content Include="Content\OldPictures\Lillan-start-broinvigningen-1936-nyårsafton.jpg" />
+    <Content Include="Content\OldPictures\Lillan-start-Föreningshuset-1912-Betongbron-1907-1937.jpg" />
+    <Content Include="Content\OldPictures\Lillan-start-Luxparken-Båthamnen-före-1939-postat-1941-1944.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Strålgatan-o-Essinge-Brogata-1938-ca.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-båtfolk-226b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-grammofon-227bc.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-jul-206b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-jumping-205b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-kaffepaus-213b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-kaffetåren-220bd.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-nygyggare-401b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-picnic-132.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tippen-vykort-1925-ca-fram.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tobak-IMG_0026.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tobak-IMG_0026b.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tobak-vyk-L19b-Untitled-Scanned-29.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tre-d-1969-EssBrog-6b-bbzoooomgul.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tre-d-1969-EssBrog-8-bbikorr.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tre-d-1969-EssBrog-8642-bb.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tre-d-dia-06-600dpi-1971.jpg" />
+    <Content Include="Content\OldPictures\Lillan-Tre-d-Kindergarten-maj-1952.jpg" />
+    <Content Include="Content\OldPictures\Lillan-vykort-flyg-1933.jpg" />
+    <Content Include="Content\OldPictures\Lillan-vykort-hög-up0003.jpg" />
+    <Content Include="Content\OldPictures\lillan_20tal_tvatten_1932.jpg" />
+    <Content Include="Content\OldPictures\lillan_essinge_brogata_1948_ca_c.jpg" />
+    <Content Include="Content\OldPictures\lillan_stora-_essingebron_fore_1940.jpg" />
+    <Content Include="Content\OldPictures\Luxpark-1950.jpg" />
+    <Content Include="Content\OldPictures\Primus-byggnation.jpg" />
+    <Content Include="Content\OldPictures\Primus-Essingeled-K-Nordin-37-Primus-rivning-vinter.jpg" />
+    <Content Include="Content\OldPictures\Storan-Badstrandsv-aaa.jpg" />
+    <Content Include="Content\OldPictures\Storan-Badstrandsv-baa.jpg" />
+    <Content Include="Content\OldPictures\Storan-Badstrandsvägen-postat-1943.jpg" />
+    <Content Include="Content\OldPictures\Storan-Kungsholms-Express-aaa.jpg" />
+    <Content Include="Content\OldPictures\Storan-Kungsholms-Express-bbb.jpg" />
+    <Content Include="Content\OldPictures\Storan-Kungsholms-Express-bbbb.jpg" />
+    <Content Include="Content\OldPictures\storan_flygfoto_kyrkan_1958.jpg" />
+    <Content Include="Content\SlideImages\Lillan-30tal-flygfoto-1938-b.jpg" />
+    <Content Include="Content\SlideImages\Lillan-Essinge-Brogata-EssBro1944-ca-stamplat-1948.jpg" />
+    <Content Include="Content\SlideImages\Lillan-Lilla-Essingebrons-invigning-1936.jpg" />
+    <Content Include="Content\SlideImages\lillan_stora-_essingebron_fore_1940.jpg" />
+    <Content Include="Content\SlideImages\Storan-Badstrandsvägen-postat-1943.jpg" />
+    <Content Include="Content\SlideImages\Storan-Kungsholms-Express-bbb.jpg" />
+    <Content Include="Content\Streetviews\20171004_153447.jpg" />
+    <Content Include="Content\Streetviews\20171004_153618.jpg" />
+    <Content Include="Content\Streetviews\20171004_153648.jpg" />
+    <Content Include="Content\Streetviews\20171004_153702.jpg" />
+    <Content Include="Content\Streetviews\20171004_153716.jpg" />
+    <Content Include="Content\Streetviews\20171004_153744.jpg" />
+    <Content Include="Content\Streetviews\20171004_153750.jpg" />
+    <Content Include="Content\Streetviews\20171004_153807.jpg" />
+    <Content Include="Content\Streetviews\20171004_153917.jpg" />
+    <Content Include="Content\Streetviews\20171004_154038.jpg" />
+    <Content Include="Content\Streetviews\20171004_154103.jpg" />
+    <Content Include="Content\Streetviews\20171004_154122.jpg" />
+    <Content Include="Content\Streetviews\20171004_154135.jpg" />
+    <Content Include="Content\Streetviews\20171004_154149.jpg" />
+    <Content Include="Content\Streetviews\20171004_154204.jpg" />
+    <Content Include="Content\Streetviews\20171004_154212.jpg" />
+    <Content Include="Content\Streetviews\20171004_154608.jpg" />
+    <Content Include="Content\Streetviews\20171004_154627.jpg" />
+    <Content Include="Content\Streetviews\20171004_154638.jpg" />
+    <Content Include="Content\Streetviews\20171004_154647.jpg" />
+    <Content Include="Content\Streetviews\20171004_154717.jpg" />
+    <Content Include="Content\Streetviews\20171004_154744.jpg" />
+    <Content Include="Content\Streetviews\20171004_154811.jpg" />
+    <Content Include="Content\Streetviews\20171004_154855.jpg" />
+    <Content Include="Content\Streetviews\20171004_154917.jpg" />
+    <Content Include="Content\Streetviews\20171004_154952.jpg" />
+    <Content Include="Content\Streetviews\20171004_155027.jpg" />
+    <Content Include="Content\Streetviews\20171004_155049.jpg" />
+    <Content Include="Content\Streetviews\20171004_155052.jpg" />
+    <Content Include="Content\Streetviews\20171004_155115.jpg" />
+    <Content Include="Content\Streetviews\20171004_155119.jpg" />
+    <Content Include="Content\Streetviews\20171004_155134.jpg" />
+    <Content Include="Content\Streetviews\20171004_155151.jpg" />
+    <Content Include="Content\Streetviews\20171004_155217.jpg" />
+    <Content Include="Content\Streetviews\20171004_155257.jpg" />
+    <Content Include="Content\Streetviews\20171004_155303.jpg" />
+    <Content Include="Content\Streetviews\20171004_155316.jpg" />
+    <Content Include="Content\Streetviews\20171004_155339.jpg" />
+    <Content Include="Content\Streetviews\20171004_155358.jpg" />
+    <Content Include="Content\Streetviews\20171004_155415.jpg" />
+    <Content Include="Content\Streetviews\20171004_155424.jpg" />
+    <Content Include="Content\Streetviews\20171004_155503.jpg" />
+    <Content Include="Content\Streetviews\20171004_155506.jpg" />
+    <Content Include="Content\Streetviews\20171004_155539.jpg" />
+    <Content Include="Content\Streetviews\20171004_155550.jpg" />
+    <Content Include="Content\Streetviews\20171004_155600.jpg" />
+    <Content Include="Content\Streetviews\20171004_155607.jpg" />
+    <Content Include="Content\Streetviews\20171004_155701.jpg" />
+    <Content Include="Content\Streetviews\20171004_155719.jpg" />
+    <Content Include="Content\Streetviews\20171004_160031.jpg" />
+    <Content Include="Content\Streetviews\20171004_160111.jpg" />
+    <Content Include="Content\Streetviews\20171004_160147.jpg" />
+    <Content Include="Content\Streetviews\20171004_160301.jpg" />
+    <Content Include="Content\Streetviews\20171004_160341.jpg" />
+    <Content Include="Content\Streetviews\20171004_160345.jpg" />
+    <Content Include="Content\Streetviews\20171004_160453_001.jpg" />
+    <Content Include="Content\Streetviews\20171004_160453_002.jpg" />
+    <Content Include="Content\Streetviews\20171004_160453_003.jpg" />
+    <Content Include="Content\Streetviews\20171004_160453_004.jpg" />
+    <Content Include="Content\Streetviews\20171004_160453_005.jpg" />
+    <Content Include="Content\Streetviews\20171004_160453_006.jpg" />
+    <Content Include="Content\Streetviews\20171004_160453_007.jpg" />
+    <Content Include="Content\Streetviews\20171004_160513.jpg" />
+    <Content Include="Content\Streetviews\20171004_160532.jpg" />
+    <Content Include="Content\Streetviews\20171004_160900.jpg" />
+    <Content Include="Content\Streetviews\20171004_161256.jpg" />
+    <Content Include="Content\Streetviews\20171004_161356.jpg" />
+    <Content Include="Content\Streetviews\20171004_161459.jpg" />
+    <Content Include="Content\Streetviews\20171004_161508.jpg" />
+    <Content Include="Content\Streetviews\20171004_161513.jpg" />
+    <Content Include="Content\Streetviews\20171004_161559.jpg" />
+    <Content Include="Content\Streetviews\20171004_161855.jpg" />
+    <Content Include="Content\Streetviews\20171004_161926.jpg" />
+    <Content Include="Content\Streetviews\20171004_161949.jpg" />
+    <Content Include="Content\Streetviews\20171004_162002.jpg" />
+    <Content Include="Content\Streetviews\20171004_162021.jpg" />
+    <Content Include="Content\Streetviews\20171004_162059.jpg" />
+    <Content Include="Content\Streetviews\20171004_162106.jpg" />
+    <Content Include="Content\Streetviews\20171004_162108.jpg" />
+    <Content Include="Content\Streetviews\20171004_162330.jpg" />
+    <Content Include="Content\Streetviews\20171004_162712.jpg" />
+    <Content Include="Content\Streetviews\20171004_162735.jpg" />
+    <Content Include="Content\Streetviews\20171004_162754.jpg" />
+    <Content Include="Content\Streetviews\20171004_162815.jpg" />
+    <Content Include="Content\Streetviews\20171004_162907.jpg" />
+    <Content Include="Content\Streetviews\20171004_162916.jpg" />
+    <Content Include="Content\Streetviews\20171004_162927.jpg" />
+    <Content Include="Content\Streetviews\20171004_162944.jpg" />
+    <Content Include="Content\Streetviews\20171004_163016.jpg" />
+    <Content Include="Content\Streetviews\20171004_163023.jpg" />
+    <Content Include="Content\Streetviews\20171004_163036.jpg" />
+    <Content Include="Content\Streetviews\20171004_163051.jpg" />
+    <Content Include="Content\Streetviews\20171004_163100.jpg" />
+    <Content Include="Content\Streetviews\20171004_163108.jpg" />
+    <Content Include="Content\Streetviews\20171004_165740.jpg" />
+    <Content Include="Content\Streetviews\20171004_165808.jpg" />
+    <Content Include="Content\Streetviews\20171004_170016.jpg" />
+    <Content Include="Content\Streetviews\20171004_170043.jpg" />
+    <Content Include="Content\Streetviews\20171004_170123.jpg" />
+    <Content Include="Content\Streetviews\20171004_170138.jpg" />
+    <Content Include="Content\Streetviews\20171004_170216.jpg" />
+    <Content Include="Content\Streetviews\20171004_170234.jpg" />
+    <Content Include="Content\Streetviews\20171004_170255.jpg" />
+    <Content Include="Content\Streetviews\20171004_170355.jpg" />
+    <Content Include="Content\Streetviews\20171004_170546.jpg" />
+    <Content Include="Content\Streetviews\20171004_170822.jpg" />
+    <Content Include="Content\Streetviews\20171004_170827.jpg" />
+    <Content Include="Content\Streetviews\20171005_135641.mp4" />
+    <Content Include="Content\Streetviews\20171005_135649.jpg" />
+    <Content Include="Content\Streetviews\20171005_135721.jpg" />
+    <Content Include="Content\Streetviews\20171005_140459.jpg" />
+    <Content Include="Content\Streetviews\20171005_140511.jpg" />
+    <Content Include="Content\Streetviews\20171005_140535.jpg" />
+    <Content Include="Content\Streetviews\20171005_140548.jpg" />
+    <Content Include="Content\Streetviews\20171005_140608.jpg" />
+    <Content Include="Content\Streetviews\20171005_140652.jpg" />
+    <Content Include="Content\Streetviews\20171005_140724.jpg" />
+    <Content Include="Content\Streetviews\20171005_140739.jpg" />
+    <Content Include="Content\Streetviews\20171005_140756.jpg" />
+    <Content Include="Content\Streetviews\20171005_140821.jpg" />
+    <Content Include="Content\Streetviews\20171005_140828.jpg" />
+    <Content Include="Content\Streetviews\20171005_140848.jpg" />
+    <Content Include="Content\Streetviews\20171005_140907.jpg" />
+    <Content Include="Content\Streetviews\20171005_140920.jpg" />
+    <Content Include="Content\Streetviews\20171005_140944.jpg" />
+    <Content Include="Content\Streetviews\20171005_140950.jpg" />
+    <Content Include="Content\Streetviews\20171005_141005.jpg" />
+    <Content Include="Content\Streetviews\20171005_141019.jpg" />
+    <Content Include="Content\Streetviews\20171005_141041.jpg" />
+    <Content Include="Content\Streetviews\20171005_141123.jpg" />
+    <Content Include="Content\Streetviews\20171005_141213.jpg" />
+    <Content Include="Content\Streetviews\20171005_141238.jpg" />
+    <Content Include="Content\Streetviews\20171005_141247.jpg" />
+    <Content Include="Content\Streetviews\20171005_141250.jpg" />
+    <Content Include="Content\Streetviews\20171005_141504.jpg" />
+    <Content Include="Content\Streetviews\20171005_141507.jpg" />
+    <Content Include="Content\Streetviews\20171005_141711.jpg" />
+    <Content Include="Content\Streetviews\20171005_141729.jpg" />
+    <Content Include="Content\Streetviews\20171005_141828.jpg" />
+    <Content Include="Content\Streetviews\20171005_141831.jpg" />
+    <Content Include="Content\Streetviews\20171005_141958.jpg" />
+    <Content Include="Content\Streetviews\20171005_142049.jpg" />
+    <Content Include="Content\Streetviews\20171005_142139.jpg" />
+    <Content Include="Content\Streetviews\20171005_142218.jpg" />
+    <Content Include="Content\Streetviews\20171005_142238.jpg" />
+    <Content Include="Content\Streetviews\20171005_142248.jpg" />
+    <Content Include="Content\Streetviews\20171005_142333.jpg" />
+    <Content Include="Content\Streetviews\20171005_142359.jpg" />
+    <Content Include="Content\Streetviews\20171005_142434.jpg" />
+    <Content Include="Content\Streetviews\20171005_142456.jpg" />
+    <Content Include="Content\Streetviews\20171005_142546.jpg" />
+    <Content Include="Content\Streetviews\20171005_142551.jpg" />
+    <Content Include="Content\Streetviews\20171005_142601.jpg" />
+    <Content Include="Content\Streetviews\20171005_142607.jpg" />
+    <Content Include="Content\Streetviews\20171005_142614.jpg" />
+    <Content Include="Content\Streetviews\20171005_142628.jpg" />
+    <Content Include="Content\Streetviews\20171005_142655.jpg" />
+    <Content Include="Content\Streetviews\20171005_142728.jpg" />
+    <Content Include="Content\Streetviews\20171005_142739.jpg" />
+    <Content Include="Content\Streetviews\20171005_142753.jpg" />
+    <Content Include="Content\Streetviews\20171005_142806.jpg" />
+    <Content Include="Content\Streetviews\20171005_142837.jpg" />
+    <Content Include="Content\Streetviews\20171005_142853.jpg" />
+    <Content Include="Content\Streetviews\20171005_142904.jpg" />
+    <Content Include="Content\Streetviews\20171005_142948.jpg" />
+    <Content Include="Content\Streetviews\20171005_142959.jpg" />
+    <Content Include="Content\Streetviews\20171005_143006.jpg" />
+    <Content Include="Content\Streetviews\20171005_143016.jpg" />
+    <Content Include="Content\Streetviews\20171005_143024.jpg" />
+    <Content Include="Content\Streetviews\20171005_143147.jpg" />
+    <Content Include="Content\Streetviews\20171005_143249.jpg" />
+    <Content Include="Content\Streetviews\20171005_144557.jpg" />
+    <Content Include="Content\Streetviews\20171005_144621.jpg" />
+    <Content Include="Content\Streetviews\20171005_144653.jpg" />
+    <Content Include="Content\Streetviews\20171005_144657.jpg" />
+    <Content Include="Content\Streetviews\20171005_144723.jpg" />
+    <Content Include="Content\Streetviews\20171005_144739.jpg" />
+    <Content Include="Content\Streetviews\20171005_144748.jpg" />
+    <Content Include="Content\Streetviews\20171005_144935.jpg" />
+    <Content Include="Content\Streetviews\20171005_145946.jpg" />
+    <Content Include="Content\Streetviews\20171005_145959.jpg" />
+    <Content Include="Content\Streetviews\20171005_150011.jpg" />
+    <Content Include="Content\Streetviews\20171005_150335.jpg" />
+    <Content Include="Content\Streetviews\20171005_150359.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_153447.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_153618.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_153648.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_153702.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_153716.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_153744.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_153750.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154038.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154122.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154135.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154212.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154608.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154647.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154717.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154811.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_154917.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_155217.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_155303.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_155316.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_155424.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_155539.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_155701.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_160031.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_160111.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_160301.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_160513.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_161256.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_161356.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_161559.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_162059.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_162330.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_170138.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171004_170546.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_140548.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_140724.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_140907.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_141041.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_141250.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_142248.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_142655.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_142806.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_142837.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_142948.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_142959.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_144935.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_150011.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_150335.jpg" />
+    <Content Include="Content\Streetviews\Websize200\20171005_150359.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Esseltub Regular.otf" />
+    <None Include="Properties\PublishProfiles\Essingen.se.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Places\Create.cshtml" />
+    <Content Include="Views\Places\Delete.cshtml" />
+    <Content Include="Views\Places\Details.cshtml" />
+    <Content Include="Views\Places\Edit.cshtml" />
+    <Content Include="Views\Places\Index.cshtml" />
+    <Content Include="Views\PlaceCategories\Create.cshtml" />
+    <Content Include="Views\PlaceCategories\Delete.cshtml" />
+    <Content Include="Views\PlaceCategories\Details.cshtml" />
+    <Content Include="Views\PlaceCategories\Edit.cshtml" />
+    <Content Include="Views\PlaceCategories\Index.cshtml" />
+    <Content Include="Views\Places\ImageAdmin.cshtml" />
+    <Content Include="Views\PlacesScaffold\Create.cshtml" />
+    <Content Include="Views\PlacesScaffold\Delete.cshtml" />
+    <Content Include="Views\PlacesScaffold\Details.cshtml" />
+    <Content Include="Views\PlacesScaffold\Edit.cshtml" />
+    <Content Include="Views\PlacesScaffold\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Css\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710040022197_init.resx">
+      <DependentUpon>201710040022197_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040032434_init2.resx">
+      <DependentUpon>201710040032434_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040043455_init3.resx">
+      <DependentUpon>201710040043455_init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040114395_init4.resx">
+      <DependentUpon>201710040114395_init4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040149270_init5.resx">
+      <DependentUpon>201710040149270_init5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040240570_init6.resx">
+      <DependentUpon>201710040240570_init6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040246337_init7.resx">
+      <DependentUpon>201710040246337_init7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710040257189_init8.resx">
+      <DependentUpon>201710040257189_init8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710061305231_init9.resx">
+      <DependentUpon>201710061305231_init9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710081245181_init10.resx">
+      <DependentUpon>201710081245181_init10.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49906</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49906/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Essingen.Models.Place>
+
+@{
+    ViewBag.Title = "Index";
+    var counter = 0;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceCategory.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignName)
+        </th>
+        <th>
+            Position
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Kontakt
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Published)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    counter += 1;
+    <tr>
+        <td>
+            @counter
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceCategory.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude) <br/>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Streetaddress)<br />
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)<br />
+            @Html.DisplayFor(modelItem => item.Email)<br />
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Published)
+        </td>
+        <td>
+            <img src="../../Content/Streetviews/WebSize200/@Html.DisplayFor(modelItem => item.MainImage)" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink( "Add Image", "ImageAdmin", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

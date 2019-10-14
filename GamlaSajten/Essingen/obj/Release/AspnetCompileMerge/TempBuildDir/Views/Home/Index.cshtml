@@ -1,0 +1,178 @@
+﻿@model IEnumerable<Essingen.Models.Place>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <p style="font-family: 'Abril Fatface', cursive">ESSINGEN</p>
+    <p class="lead">Sajten för oss på Essingeöarna</p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div id='wrapper-keLQ'><span id='h2-keLQ'><a id='url-keLQ' href="//www.vackertvader.se/stockholm"> Essingeöarna</a></span><div id='load-keLQ'></div><a id='url_detail-keLQ' href="//www.vackertvader.se/stockholm">Detaljerad prognos</a></div>
+        <script type="text/javascript" src="//widget.vackertvader.se/widgetv3/widget_request/2673730?bgcolor=ffffff&border=c4c3c3&days=2&key=-keLQ&lang=&maxtemp=no&size=x120&textcolor=363636&unit=C&wind=yes" charset="utf-8"></script>
+        <br />
+        <div class="SLSign">
+            <div class="SLTopSign">Essingetorget</div>
+            <div class="SLBottomSign">@MvcHtmlString.Create(ViewBag.SLEssingetorget)</div>
+        </div>
+        <div class="SLSign">
+            <div class="SLTopSign">Tvärbanan</div>
+            <div class="SLBottomSign">@MvcHtmlString.Create(ViewBag.SLTvarbanan)</div>
+        </div>
+        <div class="SLSign">
+            <div class="SLTopSign">Lilla Essingen</div>
+            <div class="SLBottomSign">@MvcHtmlString.Create(ViewBag.SLLillaEssingen)</div>
+        </div>
+        <h3>@ViewBag.Date</h3>
+
+
+
+
+
+        <canvas id="canvas" width="200" height="200"
+                style="background-color:#333"></canvas>
+
+        <script>
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var radius = canvas.height / 2;
+            ctx.translate(radius, radius);
+            radius = radius * 0.90
+            setInterval(drawClock, 1000);
+
+            function drawClock() {
+                drawFace(ctx, radius);
+                drawNumbers(ctx, radius);
+                drawTime(ctx, radius);
+            }
+
+            function drawFace(ctx, radius) {
+                var grad;
+                ctx.beginPath();
+                ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+                grad.addColorStop(0, '#333');
+                grad.addColorStop(0.5, 'white');
+                grad.addColorStop(1, '#333');
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = radius * 0.1;
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+                ctx.fillStyle = '#333';
+                ctx.fill();
+            }
+
+            function drawNumbers(ctx, radius) {
+                var ang;
+                var num;
+                ctx.font = radius * 0.15 + "px arial";
+                ctx.textBaseline = "middle";
+                ctx.textAlign = "center";
+                for (num = 1; num < 13; num++) {
+                    ang = num * Math.PI / 6;
+                    ctx.rotate(ang);
+                    ctx.translate(0, -radius * 0.85);
+                    ctx.rotate(-ang);
+                    ctx.fillText(num.toString(), 0, 0);
+                    ctx.rotate(ang);
+                    ctx.translate(0, radius * 0.85);
+                    ctx.rotate(-ang);
+                }
+            }
+
+            function drawTime(ctx, radius) {
+                var now = new Date();
+                var hour = now.getHours();
+                var minute = now.getMinutes();
+                var second = now.getSeconds();
+                //hour
+                hour = hour % 12;
+                hour = (hour * Math.PI / 6) +
+                    (minute * Math.PI / (6 * 60)) +
+                    (second * Math.PI / (360 * 60));
+                drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+                //minute
+                minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+                drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+                // second
+                second = (second * Math.PI / 30);
+                drawHand(ctx, second, radius * 0.9, radius * 0.02);
+            }
+
+            function drawHand(ctx, pos, length, width) {
+                ctx.beginPath();
+                ctx.lineWidth = width;
+                ctx.lineCap = "round";
+                ctx.moveTo(0, 0);
+                ctx.rotate(pos);
+                ctx.lineTo(0, -length);
+                ctx.stroke();
+                ctx.rotate(-pos);
+            }
+        </script>
+
+
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false">Tweet</a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        <div id="fb-root"></div>
+        <script>
+                (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="fb-share-button" data-href="http://essingen.se" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fessingen.se%2F&amp;src=sdkpreparse">Share</a></div>
+
+    </div>
+    <div class="col-md-9">
+        <div id="sliderFrame">
+            <div id="slider">
+                <img src="../content/SlideImages/lillan_stora-_essingebron_fore_1940.jpg" width="700" alt="" />
+                <img src="../content/SlideImages/Lillan-30tal-flygfoto-1938-b.jpg" width="700" />
+                <img src="../content/SlideImages/Storan-Badstrandsvägen-postat-1943.jpg" alt="" width="700" />
+                <img src="../content/SlideImages/Lillan-Essinge-Brogata-EssBro1944-ca-stamplat-1948.jpg" alt="" width="700" />
+                <img src="../content/SlideImages/Lillan-Lilla-Essingebrons-invigning-1936.jpg" width="700" />
+                <img src="../content/SlideImages/Storan-Kungsholms-Express-bbb.jpg" width="700" />
+            </div>
+        </div>
+        <br />
+        <div class="col-md-6">
+            <table class="table">
+
+
+                @foreach (var item in Model)
+            {
+                if (item.Published == true)
+                {
+                        <tr>
+                            <td style="'Oswald', sans-serif">
+                                @Html.DisplayFor(modelItem => item.SignName)
+                                <br />
+
+                            </td>
+                            <td>
+                                <img src="../../Content/Streetviews/WebSize200/@Html.DisplayFor(modelItem => item.MainImage)" />
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+        <div class="col-md-6">
+
+
+        </div>
+    </div>
+</div>
