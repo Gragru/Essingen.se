@@ -21,9 +21,8 @@ namespace Essingen.Controllers
             ViewBag.Date = DateTime.Now.ToShortDateString();
 
 
-            //var places = db.Places.Include(p => p.PlaceCategory);
-            //return View(places.ToList());
-            return View();
+            var places = db.Places.Include(p => p.PlaceCategory);
+            return View(places.ToList());
         }
 
         public ActionResult About()

@@ -27,9 +27,9 @@ namespace Essingen.Migrations
                         PlaceCategoryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.PlaceCategories", t => t.PlaceCategoryId, cascadeDelete: true)
-                .Index(t => t.PlaceCategoryId);
-            
+                .ForeignKey("dbo.PlaceCategories", t => t.PlaceCategoryId, cascadeDelete: true);
+
+            Sql("CREATE index `IX_PlaceCategoryId` on `Places` (`PlaceCategoryId` DESC)");
         }
         
         public override void Down()
